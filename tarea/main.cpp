@@ -5,10 +5,8 @@
 //    decir: main.cpp, foo.h y foo.cpp.
 // 2. No se permite el uso de librerias adicionales.
 
-#include <iostream>
-using namespace std;
+#include "foo.h"
 // Puede validar su codigo con la siguiente funcion main
 int main(){
-    cout<<"hola mundo"<<endl;
     return 0;
 }

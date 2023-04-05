@@ -1,23 +1,62 @@
 #include "foo.h"
 
-Matriz2D::Matriz2D(){
+Matriz2D::Matriz2D():filas(3), columnas(3){
     // Constructor por defecto
+    ptr = new float*[filas];
+    for(int i = 0; i < filas; i++){
+        ptr[i] = new float[columnas];
+    }
+    for(int i = 0; i < filas; i++){
+        for(int j = 0; j < columnas; j++){
+            ptr[i][j] = rand() % 2;
+        }
+    }
 }
 
-Matriz2D::Matriz2D(int n){
+Matriz2D::Matriz2D(int n):filas(n), columnas(n){
     // Constructor con un parametro
+    ptr = new float*[filas];
+    for(int i = 0; i < filas; i++){
+        ptr[i] = new float[columnas];
+    }
+    for(int i = 0; i < filas; i++){
+        for(int j = 0; j < columnas; j++){
+            ptr[i][j] = rand() % 2;
+        }
+    }
 }
 
-Matriz2D::Matriz2D(int n, int m){
+Matriz2D::Matriz2D(int n, int m):filas(n), columnas(m){
     // Constructor con dos parametros
+    ptr = new float*[filas];
+    for(int i = 0; i < filas; i++){
+        ptr[i] = new float[columnas];
+    }
+    for(int i = 0; i < filas; i++){
+        for(int j = 0; j < columnas; j++){
+            ptr[i][j] = rand() % 2;
+        }
+    }
 }
 
 Matriz2D::Matriz2D(const Matriz2D& m){
     // Constructor de copia
+    this->filas = m.filas;
+    this->columnas = m.columnas;
+    this->ptr = new float*[filas];
+    for(int i = 0; i < filas; i++){
+        for (int j = 0; j < columnas; ++j) {
+            this->ptr[i][j] = m.ptr[i][j];
+        }
+    }
 }
 
-Matriz2D::Matriz2D(Matriz2D&& m){
+Matriz2D::Matriz2D(Matriz2D&& m):ptr(nullptr),filas(0), columnas(0){
     // Constructor de movimiento
+    this->filas = m.filas;
+    this->columnas = m.columnas;
+    ptr = m.ptr;
+    m.ptr = nullptr;
 }
 
 Matriz2D t(Matriz2D& m){
@@ -26,10 +65,21 @@ Matriz2D t(Matriz2D& m){
 
 std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
     // Sobrecarga del operador <<
+    for (int i = 0; i < m.filas; ++i) {
+        for (int j = 0; j < m.columnas; ++j) {
+            os<<m.ptr[i][j]<<" ";
+        }
+        os<<endl;
+    }return os;
 }
 
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
+    for (int i = 0; i < ; ++i) {
+        for (int j = 0; j < ; ++j) {
+            
+        }
+    }
 }
 
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
