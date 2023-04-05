@@ -66,6 +66,12 @@ Matriz2D::Matriz2D(Matriz2D&& m){
 
 Matriz2D t(Matriz2D& m){
     // Transpuesta de una matriz
+    for (int i = 0; i < m.filas; i++){
+        for (int j = 0; j < m.columnas; j++){
+            m.ptr[i][j] = m.ptr[j][i];
+        }
+    }
+    return m;
 }
 
 std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
@@ -80,12 +86,7 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
 
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
-    for (int i = 0; i <
-    ; ++i) {
-        for (int j = 0; j < ; ++j) {
-            
-        }
-    }
+
 }
 
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
