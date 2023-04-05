@@ -41,22 +41,27 @@ Matriz2D::Matriz2D(int n, int m):filas(n), columnas(m){
 
 Matriz2D::Matriz2D(const Matriz2D& m){
     // Constructor de copia
-    this->filas = m.filas;
-    this->columnas = m.columnas;
-    this->ptr = new float*[filas];
-    for(int i = 0; i < filas; i++){
-        for (int j = 0; j < columnas; ++j) {
-            this->ptr[i][j] = m.ptr[i][j];
+    filas = m.filas;
+    columnas = m.columnas;
+
+    ptr = new float*[filas];
+    for (int i = 0; i < filas; i++)
+        ptr[i] = new float[columnas];
+    for (int i = 0; i < filas; i++){
+        for (int j = 0; j < columnas; j++){
+            ptr[i][j] = m.ptr[i][j];
         }
     }
 }
 
-Matriz2D::Matriz2D(Matriz2D&& m):ptr(nullptr),filas(0), columnas(0){
+Matriz2D::Matriz2D(Matriz2D&& m){
     // Constructor de movimiento
-    this->filas = m.filas;
-    this->columnas = m.columnas;
-    ptr = m.ptr;
-    m.ptr = nullptr;
+    if (this != &m)
+    {
+        columnas = m.columnas;
+        filas = m.filas;
+        ptr = m.ptr;
+    }
 }
 
 Matriz2D t(Matriz2D& m){
@@ -75,7 +80,8 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
 
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
-    for (int i = 0; i < ; ++i) {
+    for (int i = 0; i <
+    ; ++i) {
         for (int j = 0; j < ; ++j) {
             
         }
