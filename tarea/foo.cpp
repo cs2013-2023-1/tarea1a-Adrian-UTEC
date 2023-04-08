@@ -86,31 +86,79 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
 
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
-
+    Matriz2D m = m1;
+    for (int i = 0; i < m1.filas; i++){
+        for (int j = 0; j < m1.columnas; j++){
+            m.ptr[i][j] = m1.ptr[i][j] + m2.ptr[i][j];
+        }
+    }
+    return m;
 }
 
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador -
+    Matriz2D m = m1;
+    for (int i = 0; i < m1.filas; i++){
+        for (int j = 0; j < m1.columnas; j++){
+            m.ptr[i][j] = m1.ptr[i][j] - m2.ptr[i][j];
+        }
+    }
+    return m;
 }
 
 Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador *
+    Matriz2D m = m1;
+    for (int i = 0; i < m1.filas; i++){
+        for (int j = 0; j < m1.columnas; j++){
+            m.ptr[i][j] = m1.ptr[i][j] * m2.ptr[i][j];
+        }
+    }
+    return m;
 }
 
 Matriz2D operator+(const Matriz2D& m, float n){
     // Sobrecarga del operador +
+    Matriz2D m1 = m;
+    for (int i = 0; i < m.filas; i++){
+        for (int j = 0; j < m.columnas; j++){
+            m1.ptr[i][j] = m.ptr[i][j] + n;
+        }
+    }
+    return m1;
 }
 
 Matriz2D operator-(const Matriz2D& m, float n){
     // Sobrecarga del operador -
+    Matriz2D m1 = m;
+    for (int i = 0; i < m.filas; i++){
+        for (int j = 0; j < m.columnas; j++){
+            m1.ptr[i][j] = m.ptr[i][j] - n;
+        }
+    }
+    return m1;
 }
 
 Matriz2D operator*(const Matriz2D& m, float n){
     // Sobrecarga del operador *
+    Matriz2D m1 = m;
+    for (int i = 0; i < m.filas; i++){
+        for (int j = 0; j < m.columnas; j++){
+            m1.ptr[i][j] = m.ptr[i][j] * n;
+        }
+    }
+    return m1;
 }
 
 Matriz2D operator/(const Matriz2D& m, float n){
     // Sobrecarga del operador /
+    Matriz2D m1 = m;
+    for (int i = 0; i < m.filas; i++){
+        for (int j = 0; j < m.columnas; j++){
+            m1.ptr[i][j] = m.ptr[i][j] / n;
+        }
+    }
+    return m1;
 }
 
 float Matriz2D::get(int i, int j){
