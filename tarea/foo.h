@@ -9,9 +9,9 @@ friend Matriz2D operator+(const Matriz2D&, const Matriz2D&); //listo
 friend Matriz2D operator-(const Matriz2D&, const Matriz2D&); //listo
 friend Matriz2D operator*(const Matriz2D&, const Matriz2D&); //listo
 friend Matriz2D operator+(const Matriz2D&, float); //listo
-friend Matriz2D operator-(const Matriz2D&, float); //
-friend Matriz2D operator*(const Matriz2D&, float); //
-friend Matriz2D operator/(const Matriz2D&, float); //
+friend Matriz2D operator-(const Matriz2D&, float); //listo
+friend Matriz2D operator*(const Matriz2D&, float); //listo
+friend Matriz2D operator/(const Matriz2D&, float); //listo
 public:
     Matriz2D(); //listo
     Matriz2D(int); //listo
