@@ -66,12 +66,13 @@ Matriz2D::Matriz2D(Matriz2D&& m){
 
 Matriz2D t(Matriz2D& m){
     // Transpuesta de una matriz
-    for (int i = 0; i < m.filas; i++){
-        for (int j = 0; j < m.columnas; j++){
-            m.ptr[i][j] = m.ptr[j][i];
+    Matriz2D m1(m.columnas, m.filas);
+    for (int i = 0; i < m.columnas; i++){
+        for (int j = 0; j < m.filas; j++){
+            m.ptr[j][i] = m1.ptr[i][j];
         }
     }
-    return m;
+    return m1;
 }
 
 std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
